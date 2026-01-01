@@ -1,0 +1,43 @@
+# Laravel Backend
+backend/.env
+backend/.env.*
+backend/.env.backup
+backend/.phpunit.result.cache
+backend/vendor/
+backend/node_modules/
+backend/public/build/
+backend/public/hot
+backend/public/storage
+backend/storage/*.key
+backend/storage/app/public
+backend/storage/framework/cache/data/*
+backend/storage/framework/sessions/*
+backend/storage/framework/testing/*
+backend/storage/framework/views/*
+backend/storage/logs/*
+!backend/storage/app/public/.gitignore
+!backend/storage/framework/cache/data/.gitignore
+!backend/storage/framework/sessions/.gitignore
+!backend/storage/framework/testing/.gitignore
+!backend/storage/framework/views/.gitignore
+!backend/storage/logs/.gitignore
+
+# React Native Mobile
+mobile/node_modules/
+mobile/.expo/
+mobile/dist/
+mobile/web-build/
+mobile/.idea/
+mobile/.vscode/
+mobile/*.jks
+mobile/*.keystore
+mobile/android/app/build/
+mobile/android/.gradle/
+mobile/ios/Pods/
+mobile/ios/build/
+
+# System
+.DS_Store
+Thumbs.db
+.gemini/
+tmp/

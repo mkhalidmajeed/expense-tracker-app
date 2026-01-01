@@ -1,0 +1,154 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@source '../**/*.jsx';
+
+@theme {
+    /* Typography */
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+    
+    /* Brand Colors - Vibrant & Premium */
+    --color-primary-50: hsl(262, 100%, 97%);
+    --color-primary-100: hsl(262, 100%, 94%);
+    --color-primary-200: hsl(262, 100%, 87%);
+    --color-primary-300: hsl(262, 100%, 78%);
+    --color-primary-400: hsl(262, 92%, 68%);
+    --color-primary-500: hsl(262, 83%, 58%);
+    --color-primary-600: hsl(262, 69%, 50%);
+    --color-primary-700: hsl(262, 69%, 42%);
+    --color-primary-800: hsl(262, 66%, 35%);
+    --color-primary-900: hsl(262, 61%, 29%);
+    --color-primary-950: hsl(262, 73%, 19%);
+    
+    /* Accent Colors */
+    --color-accent-cyan: hsl(189, 94%, 43%);
+    --color-accent-pink: hsl(330, 81%, 60%);
+    --color-accent-green: hsl(142, 71%, 45%);
+    --color-accent-orange: hsl(25, 95%, 53%);
+    
+    /* Dark Mode Colors */
+    --color-dark-bg: hsl(240, 10%, 6%);
+    --color-dark-surface: hsl(240, 9%, 9%);
+    --color-dark-border: hsl(240, 6%, 15%);
+}
+
+/* Global Styles */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: hsl(240, 10%, 6%);
+    color: hsl(0, 0%, 98%);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(240, 9%, 12%);
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(262, 69%, 50%);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(262, 83%, 58%);
+}
+
+/* Glassmorphism Utility */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Premium Gradient Text */
+.gradient-text {
+    background: linear-gradient(135deg, hsl(262, 83%, 58%), hsl(189, 94%, 43%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Smooth Transitions */
+.smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover Glow Effect */
+.hover-glow {
+    transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 30px rgba(134, 80, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Page Transitions */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-enter {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Button Ripple Effect */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-effect::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:active::after {
+    width: 300px;
+    height: 300px;
+}
+
