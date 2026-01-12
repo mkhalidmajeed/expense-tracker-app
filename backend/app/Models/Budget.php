@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Expense extends Model
+class Budget extends Model
 {
     use HasFactory;
 
@@ -13,15 +13,8 @@ class Expense extends Model
         'user_id',
         'category_id',
         'amount',
-        'description',
-        'date',
-        'payment_method',
-        'image_path'
-    ];
-
-    protected $casts = [
-        'date' => 'date',
-        'amount' => 'decimal:2',
+        'month',
+        'year',
     ];
 
     public function user()

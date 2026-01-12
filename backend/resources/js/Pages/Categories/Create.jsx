@@ -1,10 +1,10 @@
 import { Head, Link, useForm } from '@inertiajs/react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 
-export default function Create({ auth }) {
+export default function Create({ auth, type: initialType }) {
     const { data, setData, post, processing, errors } = useForm({
         name: '',
-        type: 'expense',
+        type: initialType || 'expense',
         color: '#8b5cf6', // Default purple
         icon: '🏷️',
     });

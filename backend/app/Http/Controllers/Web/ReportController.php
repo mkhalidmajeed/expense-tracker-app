@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Models\Expense;
 use App\Models\Category;
-use Illuminate\Http\Request;
-use Inertia\Inertia;
-use Illuminate\Support\Facades\DB;
+use App\Models\Expense;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Inertia\Inertia;
 
 class ReportController extends Controller
 {
@@ -16,9 +16,9 @@ class ReportController extends Controller
     {
         $user = $request->user();
         $now = Carbon::now();
-        
+
         // 1. Spending by Category (This Month)
-        $expensesByCategory = Expense::where('user_id', $user->id)
+        $expensesByCategory = Expense::where('expenses.user_id', $user->id)
             ->whereYear('date', $now->year)
             ->whereMonth('date', $now->month)
             ->join('categories', 'expenses.category_id', '=', 'categories.id')
@@ -35,7 +35,7 @@ class ReportController extends Controller
                 ->whereYear('date', $month->year)
                 ->whereMonth('date', $month->month)
                 ->sum('amount');
-            
+
             $monthlySpending[] = [
                 'month' => $month->format('M Y'),
                 'total' => $total,

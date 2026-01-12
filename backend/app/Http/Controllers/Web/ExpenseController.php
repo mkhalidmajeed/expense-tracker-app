@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Models\Expense;
 use App\Models\Category;
+use App\Models\Expense;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
 class ExpenseController extends Controller
 {
@@ -49,6 +49,7 @@ class ExpenseController extends Controller
     {
         return Inertia::render('Expenses/Create', [
             'categories' => Category::all(),
+            'type' => request()->query('type'),
         ]);
     }
 

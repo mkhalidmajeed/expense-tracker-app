@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
 class CategoryController extends Controller
 {
@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         $categories = Category::where('user_id', $request->user()->id)
-            ->orWhereNull('user_id') // Include default categories if any
+            ->orWhereNull('user_id')  // Include default categories if any
             ->orderBy('name')
             ->get();
 
@@ -30,7 +30,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Categories/Create');
+        return Inertia::render('Categories/Create', [
+            'type' => request()->query('type'),
+        ]);
     }
 
     /**

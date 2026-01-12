@@ -124,7 +124,7 @@ export default function Index({ auth, expenses, filters }) {
                                 ))
                             ) : (
                                 <tr>
-                                    <td colspan="5" className="px-6 py-10 text-center text-gray-500">
+                                    <td colSpan="5" className="px-6 py-10 text-center text-gray-500">
                                         No expenses found.
                                     </td>
                                 </tr>

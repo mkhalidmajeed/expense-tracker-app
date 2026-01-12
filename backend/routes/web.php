@@ -53,7 +53,7 @@ Route::get('/privacy', function () {
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
-    
+
     Route::get('/register', [AuthController::class, 'registerForm']);
     Route::post('/register', [AuthController::class, 'register']);
 });
@@ -61,7 +61,7 @@ Route::middleware('guest')->group(function () {
 // Authenticated routes
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    
+
     // Dashboard
     Route::get('/dashboard', [\App\Http\Controllers\Web\DashboardController::class, 'index'])->name('dashboard');
 
@@ -77,6 +77,8 @@ Route::middleware('auth')->group(function () {
 
     // Reports
     Route::get('/reports', [\App\Http\Controllers\Web\ReportController::class, 'index'])->name('reports.index');
+
+    // Budgets
+    Route::get('/budgets', [\App\Http\Controllers\Web\BudgetController::class, 'index'])->name('budgets.index');
+    Route::post('/budgets', [\App\Http\Controllers\Web\BudgetController::class, 'store'])->name('budgets.store');
 });
-
-
